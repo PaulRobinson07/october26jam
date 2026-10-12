@@ -9,6 +9,7 @@ var itemsLoad = [
 ]
 
 func _ready():
+	self.visible = false
 	for i in InventorySize:
 		var slot := InventorySlot.new(ItemData.Type.MAIN,Vector2(SlotSize,SlotSize))
 		%Inventory.add_child(slot)
@@ -16,6 +17,8 @@ func _ready():
 		var item := InventoryItem.new()
 		var d = ItemData.new()
 		d.texture = load(itemsLoad[i])
+		d.description = "smaller balls info"
+		d.name = "BALLBALLS"
 		item.init(d)
 		%Inventory.get_child(i).add_child(item)
 
