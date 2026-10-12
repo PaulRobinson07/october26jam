@@ -1,0 +1,83 @@
+=============================
+Name ideas: 
+1. End of all but my Black Hole
+2. The Giving Singularity (like the giving tree)
+=============================
+Theme End of the Line
+Either End, Line, or combined
+=============================
+due date: October 30th
+=============================
+
+- Has to be done with godot and in 2d
+- Has to be playable by Friday
+- Gonna use my old artstyle of handrawn
+- Guitar ambient for background music
+
+
+=============================
+ideas
+=============================
+- Sole survior of earth and you have to terraform mars to restart humanity.
+- Humanity is at the end of the line
+- What if humanity is at the end of time and protons are starting to decay and most energy is being lost
+- You have to escape the linear time that follows a line to go back to a time with more resources.
+
+
+=============================
+story
+=============================
+- humanity has been leaching off of a dying black hole for years now
+- the black hole has started to run out of mass and is ejecting larger and larger objects because its' gravity can't hold it in
+- as a last resort, you the player, has to save humanity at the end of time by sending them back to the time of light
+- you use resources to try to create a time machine to go back
+- if you fail to make it in time you watch the black hole explode as the last act of the universe and time continues without end
+	- alternate ending being that god resets the universe (returning player to menu) with "Let there be Light"
+- success is achieved by going back to the age of starlight by creating a time machine that can handle the travel
+- trying to leave your current time too early can cause you to fall into an aybss outside of time. 
+	- maybe some weird graphical effects or something
+
+=============================
+characters
+=============================
+ENGINEER
+	- From long ago but fell into the black hole and just got ejected
+	- Has lots of knowledge because he is an engineer
+	- Can teach you how to make stuff
+	(quests are more about tutorial)
+	(doesn't know it yet, but his ship has actually also come out and crashed on the planet you're on)
+SCIENTIST
+	- Fell into the black hole while gathering information
+	- Has a theory on how to escape back to a preivous time or go to another black hole
+
+
+=============================
+timeline of gamemaking
+=============================
+Tuesday the 13th:
+	- Minimum viable playtest
+
+Friday the 23rd:
+	- First playable game
+
+Friday the 30th:
+	- Turn in
+=============================
+TODOS TUESDAY
+=============================
+	- inventory (1/2 done)
+	- npc to ask questions to and get quests/items
+	- ores
+	- items randomly falling from sky
+	- crafting
+	- redone art (fix mixels)
+	- intro sequence
+		(spawn in some interesting way and also have the npc drop in randomly)
+		(prompt that shows the player how to move)
+	- outro sequence
+		(goes to another solar system or something
+	- music
+	- setting screen
+		(sounds, controls, etc)
+	- save files (json?)
+
