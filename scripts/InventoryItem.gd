@@ -42,11 +42,19 @@ func make_drag_preview(at_position: Vector2):
 	var c:= Control.new()
 	c.add_child(t)
 	return c
-	
+
+##when the player drags an item outside a notification is sent[br]
+##this notification is used to allow us to detect drag events that fail
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_DRAG_END and is_being_dragged:
-		if not is_drag_successful():
-			print("drop item into world instead of inventory")
-			var i = Item2.new(data, Vector2(10,10))
-			get_tree().current_scene.add_child(i)
-			queue_free()
+	#if the notification is drag end
+	#if the dragged item is this one
+	#and if the drag wasn't successful into another slot
+	if what == NOTIFICATION_DRAG_END and is_being_dragged and not is_drag_successful():
+		#make a new physical item
+		var i = Item2.new(data, Vector2(100,-1000))
+		
+		#add it to the world
+		get_tree().current_scene.add_child(i)
+		
+		#delete this item
+		queue_free()

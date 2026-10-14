@@ -1,5 +1,5 @@
 extends RigidBody2D
-class_name Item2
+class_name Item2Physcial
 
 ##maximum angle that the item can be launched at
 @export var MAX_ANGLE = PI
@@ -23,5 +23,17 @@ func _init(d: ItemData, pos: Vector2):
 	sprite.texture = data.texture
 	sprite.name = "ItemSprite"
 	add_child(sprite)
-
+	var collision = CollisionShape2D.new()
 	
+	
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(1, true)
+	add_child(collision)
+
+	var circle = CircleShape2D.new()
+
+	circle.radius = 10.0
+	collision.shape = circle
+	
+	var area2d = ItemCollision.new()
+	add_child(area2d)

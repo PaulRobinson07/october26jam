@@ -25,8 +25,8 @@ func _ready():
 		%Inventory.add_child(slot)
 	
 	#example code of how to add a slot of a new type
-	var slot := InventorySlot.new(ItemData.Type.BACKPACK,Vector2(SlotSize,SlotSize))
-	%Inventory.add_child(slot)
+	var slote := InventorySlot.new(ItemData.Type.BACKPACK,Vector2(SlotSize,SlotSize))
+	%Inventory.add_child(slote)
 	
 	#example code of how to add a item that is generic
 	for i in itemsLoad.size():
@@ -40,16 +40,16 @@ func _ready():
 		%Inventory.get_child(i).add_child(item)
 	
 	#example code of how to add a item that is specific, in this case a backpack item
-	var item := InventoryItem.new()
-	var d = ItemData.new()
-	d.texture = load(itemsLoad[0])
-	d.description = "smaller balls info"
-	d.name = "BALLBALLS"
-	d.type = ItemData.Type.BACKPACK
-	item.init(d)
-	%Inventory.get_child(16).add_child(item)
+	var iteme := InventoryItem.new()
+	var de = ItemData.new()
+	de.texture = load(itemsLoad[0])
+	de.description = "smaller balls info"
+	de.name = "BALLBALLS"
+	de.type = ItemData.Type.BACKPACK
+	iteme.init(de)
+	%Inventory.get_child(16).add_child(iteme)
 
-func _process(delta):
+func _process(_delta):
 	#if the user asked the game to open or close the inventory do so
 	if Input.is_action_just_pressed("Inventory"):
 		self.visible = !self.visible

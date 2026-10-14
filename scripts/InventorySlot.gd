@@ -10,7 +10,7 @@ func _init(t: ItemData.Type, cms: Vector2) -> void:
 	custom_minimum_size = cms
 
 ##determines if the item can be dropped onto this inventory slot
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	if data is InventoryItem:
 		#if the datatype is generic
 		if type == ItemData.Type.MAIN:
@@ -30,7 +30,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return false
 
 ##switches two item's inventory slot or simply makes one go to a new one
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	#if there is already an item there switch them
 	if get_child_count() > 0:
 		#switches the old item to the location of the new one
