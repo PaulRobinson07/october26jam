@@ -47,4 +47,6 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END and is_being_dragged:
 		if not is_drag_successful():
 			print("drop item into world instead of inventory")
+			var i = Item2.new(data, Vector2(10,10))
+			get_tree().current_scene.add_child(i)
 			queue_free()
