@@ -24,6 +24,26 @@ ideas
 - You have to escape the linear time that follows a line to go back to a time with more resources.
 
 
+
+=============================
+gameplay
+=============================
+- The radiation fabricator collects hawking radiation to create new objects
+- The engineer with the help of materials you give him is able to improve the design of it
+- Radiation Fabricator MKII-whateverthefuck can make better items and with better effiecency
+- You need some of these crafting reciepes to fix the engineer's ship (see story)
+- The black hole occasionally spits out items to boost the player's progress 
+	(some are going to be forced to allow progression without rng)
+- All the plants and other living things got sucked out into the vaccum and the black hole during the breach so food is limited as well as oxygen
+- The engineer has one hour gameplay of oxygen and food for both of you
+- The fabricator mkII or mkIII (figure it out later) can make these
+- mkIV or V can make all the repairs to fix the ship
+
+THE FABRICATOR
+- produces different atoms over time
+- different atoms take different amounts of time (based on atomic mass) moles per second = 1/atomic_mass may be good start for rates of each element
+- after collecting several elements you can craft a item
+
 =============================
 story
 =============================
@@ -36,6 +56,67 @@ story
 - success is achieved by going back to the age of starlight by creating a time machine that can handle the travel
 - trying to leave your current time too early can cause you to fall into an aybss outside of time. 
 	- maybe some weird graphical effects or something
+
+START OF GAME
+- You wake up, coffee in hand watching the black hole. From the players perspective with static pngs for easy story telling
+- You drop your coffee and it shatters on the ground
+- You bolt out the door to see whats going on better
+- Start Spaceship crash sequence
+
+THE ENGINEER
+- Was looking for suitable black holes for humanity to live at
+- After sending data back to Earth that the black hole is suitable his ship got trapped into the black hole's gravitational pull
+- Instantly got teleported into the future with the player and saves them from the vaccum of space and oxygen deprivation
+	P.S. making the engineer just give the player a oxygen mask and the space station repairs itself makes more sense
+- His ship crashes into the player's spacestation
+	For the cutscene create the unbroken ship sprite, have it collide with some glass objects
+	After the collision the glass objects spawn a bunch of glass shard child nodes
+	The glass shards are effected by the spaceship, but the spaceship isn't effected by the shards
+- After a quick discussion with you about his crash a short cutscene of hit making the Fabricator for you plays
+	Top of the Z index
+	Pauseable
+
+
+
+DIALGOUE
+- Tries to relate the space station to the Halo Rings from Halo but can't find the word (because its trademarked, but I want to nod to it since I love halo so much)
+	"Wow, this station sure is like the rings from that one game. What's it called again? You know the one. The green dude. It's got these giant floating space rings that are superweapons. Oh, it's called ringworld. No, no... It has to be something else. You know what I'm talking about right? Ah, forget it then."
+	"You almost got sucked into the vaccum. If I wasn't here to grab you and give you a oxygen mask you would've died."
+
+THE ENGINEER'S SHIP
+//gui//
+- Has a gui display that you can interact with when close to see progress on repairs
+//example gui//
+bootup_sequence.start()
+hull.get_statbility()
+retrieving hull stability (1/200) until it reaches (200/200)
+hull stability (154/200)
+//so on and so forth for all the things and managed with a fake cli that can simply get status of each subsystem
+
+required objects to fix
+- Jack to lift it up so the engineer can fix the wheels for takeoff
+- Engine Block needs antimater charges to move 
+- Requires a bunch of electrical components
+	Circuit board make with circiut board table
+	Wires
+- Metal panels and welding station for engineer to fix the ship
+
+
+
+=============================
+story updated
+=============================
+
+- You are one of the last people on a spacestation that harvests hawking radiation to continue civilation
+- Years ago most of the people left to try to find another star or travel to the past
+- You stayed to be the record keeper of the universe
+- One day a spaceship comes out of the black hole and destroys the habbit you live in
+- This is the engineer
+	- He has lots of useful information
+	- He theorizes that the black hole is loosing so much radiation that it is starting to eject the matter inside of it
+	- For this reason you must help him repair his ship so he can either travel back in time or explore the universe
+	- He saves your life after all the oxygen got sucked out of the habitat you once lived in by giving you a gas mask
+
 
 =============================
 characters

@@ -1,15 +1,16 @@
 [gd_scene format=4 uid="uid://d3hw28fll1br5"]
 
-[ext_resource type="Script" uid="uid://dxt2py0r7limp" path="res://scripts/movement.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dxt2py0r7limp" path="res://scripts/Player.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dytkpgylbh0sh" path="res://Standing (1).png" id="2_5vw27"]
 [ext_resource type="Texture2D" uid="uid://37rfaaeas2er" path="res://Walking_Animation_Prototype 2-spritesheet (1).png" id="2_kek77"]
 [ext_resource type="Texture2D" uid="uid://c1hdxp21sxtkq" path="res://Untitled_Artwork 2.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dngiyhfvroocd" path="res://Walking_Animation_Prototype-spritesheet (1).png" id="3_kek77"]
-[ext_resource type="Script" uid="uid://cu7rnxtux4ch7" path="res://scripts/label.gd" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://dxm7xxgbqaekv" path="res://scripts/item.gd" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://cu7rnxtux4ch7" path="res://scripts/Label.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dxm7xxgbqaekv" path="res://scripts/Item.gd" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bhwj5tnplef6c" path="res://icon.svg" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://cjwl8qlwcoycf" path="res://scripts/guide.gd" id="7_272bh"]
-[ext_resource type="Script" uid="uid://c6oq3l2ajopgx" path="res://scripts/gui.gd" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://cjwl8qlwcoycf" path="res://scripts/Guide.gd" id="7_272bh"]
+[ext_resource type="Script" uid="uid://c4faalhomp68c" path="res://scripts/ItemCollision.gd" id="8_efxa6"]
+[ext_resource type="Script" uid="uid://c6oq3l2ajopgx" path="res://scripts/Gui.gd" id="10_4c57u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mx8d"]
 size = Vector2(136, 423)
@@ -282,24 +283,21 @@ sources/1 = SubResource("TileSetAtlasSource_h2yge")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0mx8d"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_swqdq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_lquwl")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_swqdq"]
+radius = 79.025314
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
 size = Vector2(31, 98.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swqdq"]
+size = Vector2(346, 243)
+
 [node name="main" type="Node2D" unique_id=575347710]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=507088207]
+unique_name_in_owner = true
 scale = Vector2(0.25, 0.25)
+collision_layer = 25
 script = ExtResource("1_ig7tw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=522053494]
@@ -317,16 +315,31 @@ tile_map_data = PackedByteArray("AAD+/wAAAQAEAAIAAAD+/wEAAQAEAAMAAAD//wAAAQAFAAI
 tile_set = SubResource("TileSet_swqdq")
 
 [node name="Item" type="Node2D" parent="." unique_id=1405530831]
+position = Vector2(-200, -100)
 
 [node name="ItemPhysical" type="RigidBody2D" parent="Item" unique_id=1849989303]
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 4
 script = ExtResource("4_7mycd")
 
 [node name="ItemCollision" type="CollisionShape2D" parent="Item/ItemPhysical" unique_id=731886567]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("CircleShape2D_0mx8d")
 
-[node name="ItemSprite" type="AnimatedSprite2D" parent="Item/ItemPhysical" unique_id=250339413]
-scale = Vector2(0.3046875, 0.25)
-sprite_frames = SubResource("SpriteFrames_swqdq")
+[node name="ItemSprite" type="Sprite2D" parent="Item/ItemPhysical" unique_id=1418259696]
+texture = ExtResource("5_lquwl")
+
+[node name="Area2D" type="Area2D" parent="Item/ItemPhysical" unique_id=2057951345]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("8_efxa6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item/ItemPhysical/Area2D" unique_id=1838601864]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("CircleShape2D_swqdq")
 
 [node name="ItemTextContainer" type="Node2D" parent="Item" unique_id=945976188]
 position = Vector2(0, -100)
@@ -345,7 +358,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Guide" type="CharacterBody2D" parent="." unique_id=1772665103]
 position = Vector2(200, 0)
 collision_layer = 2
-collision_mask = 2
 script = ExtResource("7_272bh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guide" unique_id=1512319970]
@@ -356,6 +368,16 @@ shape = SubResource("RectangleShape2D_5vw27")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0mx8d")
 animation = &"idling"
+
+[node name="Interaction" type="Area2D" parent="Guide" unique_id=1908729915]
+collision_layer = 16
+collision_mask = 0
+
+[node name="InteractionShape" type="CollisionShape2D" parent="Guide/Interaction" unique_id=1711139179]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(-2, 17.5)
+shape = SubResource("RectangleShape2D_swqdq")
 
 [node name="Gui" type="CanvasLayer" parent="." unique_id=1865232600]
 script = ExtResource("10_4c57u")

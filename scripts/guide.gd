@@ -1,8 +1,9 @@
 extends CharacterBody2D
-@export var SPEED = 320;
-@export var JUMP_VELOCITY = -500;
 
 func _physics_process(delta: float) -> void:
+	#if the npc is not on the floor, make it fall
 	if not is_on_floor():
 		velocity +=get_gravity() * delta
+		
+	#update movement
 	move_and_slide()
