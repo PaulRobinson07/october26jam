@@ -104,7 +104,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ryguw")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"falling",
 "speed": 12.0
 }, {
@@ -114,7 +114,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idling",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -135,7 +135,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xuqvo")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"jumping",
 "speed": 12.0
 }, {
@@ -172,7 +172,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walking",
-"speed": 12.0
+"speed": 18.0
 }]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
@@ -297,7 +297,7 @@ shape = SubResource("RectangleShape2D_0mx8d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=156209457]
 sprite_frames = SubResource("SpriteFrames_0mx8d")
-animation = &"jumping"
+animation = &"idling"
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=848233896]
 
@@ -330,7 +330,7 @@ position = Vector2(-2, 17.5)
 shape = SubResource("RectangleShape2D_swqdq")
 
 [node name="Gui" type="CanvasLayer" parent="." unique_id=1865232600]
-visible = false
+unique_name_in_owner = true
 script = ExtResource("10_4c57u")
 
 [node name="Panel" type="Panel" parent="Gui" unique_id=804996920]

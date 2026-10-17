@@ -1,4 +1,5 @@
 extends Label
+class_name ItemLabel
 
 ##the name of the item
 @export var item_name  = "Placeholder Name "

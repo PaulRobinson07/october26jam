@@ -1,5 +1,5 @@
-class_name ItemData
 extends Resource
+class_name ItemData
 
 ##data about where the item can be stored in the inventory
 enum Type {

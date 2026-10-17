@@ -48,13 +48,18 @@ func make_drag_preview(at_position: Vector2):
 func _notification(what: int) -> void:
 	#if the notification is drag end
 	#if the dragged item is this one
-	#and if the drag wasn't successful into another slot
-	if what == NOTIFICATION_DRAG_END and is_being_dragged and not is_drag_successful():
-		#make a new physical item
-		var i = Item2.new(data, Vector2(100,-1000))
-		
-		#add it to the world
-		get_tree().current_scene.add_child(i)
-		
-		#delete this item
-		queue_free()
+	if what == NOTIFICATION_DRAG_END and is_being_dragged: 
+		#and if the drag wasn't successful into another slot
+		if not is_drag_successful():
+			#make a new physical item
+			var i = ItemPhyscial.new(data, Vector2(100,-1000))
+			
+			#add it to the world
+			get_tree().current_scene.add_child(i)
+			
+			#delete this item
+			queue_free()
+		#runs if the drag was successful
+		#(swapping places with another item or simply goes to an empty slot)
+		#stops the item from being the currently dragged item
+		is_being_dragged = false
